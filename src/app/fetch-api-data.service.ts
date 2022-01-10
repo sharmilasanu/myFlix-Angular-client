@@ -57,12 +57,7 @@ public getAllMovies(): Observable<any> {
  public userLogin(userDetails: any): Observable<any> {
     console.log(userDetails);
     const { UserName, Password } = userDetails;
-    return this.http
-      .post(
-        apiUrl + 'login?Username=' + UserName + '&Password=' + Password,
-        headers
-      )
-      .pipe(catchError(this.handleError));
+    return this.http.post(apiUrl + 'login', userDetails).pipe(catchError(this.handleError));
   }
 
   //Gets data of movie by name/title
