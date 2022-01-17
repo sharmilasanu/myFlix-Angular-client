@@ -1,0 +1,27 @@
+.navbar {
+  font-family: "Work Sans", sans-serif;
+}
+
+button {
+  font-family: "Work Sans", sans-serif;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  display: flex;
+  box-sizing: border-box;
+  padding: 0 25px;
+  width: 100%;
+  flex-direction: row;
+  align-items: stretch;
+  white-space: nowrap;
+  justify-content: space-evenly;
+  align-content: space-around;
+}
+.material-icons {
+  font-size: 50px;
+}
