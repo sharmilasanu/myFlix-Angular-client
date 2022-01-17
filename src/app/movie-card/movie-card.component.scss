@@ -1,0 +1,64 @@
+mat-card {
+  flex: 1 1 1 1 auto;
+  text-align: center;
+  font-family: "Work Sans", sans-serif;
+  margin: 20px;
+  background-color: azure;
+}
+body {
+  background-color: azure;
+}
+.home-page {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 26px;
+  justify-content: center;
+}
+.mat-card-header {
+  text-align: center;
+  // Makes room for the longer movie titles so that the card images for all of the movies line up
+  height: 80px;
+}
+
+.mat-card-title {
+  color: #0c030e;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.mat-card-subtitle {
+  color: #1de9b6;
+  width: 175px;
+}
+
+.mat-card img {
+  margin-left: 9px;
+}
+
+.mat-card-actions {
+  display: flex;
+  padding: 5px;
+  height: 40px;
+}
+
+// Selects all the child elements and gives them equal space
+.mat-card-actions > * {
+  flex: 1;
+}
+
+.mat-button {
+  padding: 0;
+}
+
+// This is needed as a small fix to get the director button loooking central
+#director {
+  margin-right: 0;
+  margin-left: 16px;
+}
+
+// Places the heart icon in the top right-hand corner
+.mat-icon-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
