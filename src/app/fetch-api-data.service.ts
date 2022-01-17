@@ -55,7 +55,7 @@ public getAllMovies(): Observable<any> {
 
 // Api call for User login 
  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    
     const { UserName, Password } = userDetails;
     return this.http.post(apiUrl + 'login', userDetails).pipe(catchError(this.handleError));
   }
@@ -102,7 +102,7 @@ public getAllMovies(): Observable<any> {
 
   // gets user by name
   public getUser(username: any): Observable<any> {
-    return this.http.get(apiUrl + `users/${username}`, {
+    return this.http.get(apiUrl + 'users/' + username, {
       headers: new HttpHeaders(
         {
           Authorization: 'Bearer ' + token,
@@ -115,20 +115,26 @@ public getAllMovies(): Observable<any> {
 
   //adds a favorite movie
 
- public addToFav(username: string, MovieID: string): Observable<any> {
+ public addToFav(movieId: any): Observable<any> {
+  const username =  localStorage.getItem('user');
+  const token = localStorage.getItem('token');
     const response = this.http.post(
-      apiUrl + 'users/' + username + 'movies/' + MovieID,
+      apiUrl + 'users/' + username + '/movies/' + movieId,
       headers
     );
     return response.pipe(catchError(this.handleError));
+
+    
   }
 
 
   //deletes a favorite movie
 
-  public removeFromFav(username: string, MovieID: string): Observable<any> {
+  public removeFromFav(movieId: any): Observable<any> {
+    const username =  localStorage.getItem('user');
+  const token = localStorage.getItem('token');
     const response = this.http.delete(
-      apiUrl + 'users/' + username + 'movies/' + MovieID,
+      apiUrl + 'users/' + username + '/movies/' + movieId,
       headers
     );
     return response.pipe(catchError(this.handleError));
@@ -137,10 +143,12 @@ public getAllMovies(): Observable<any> {
 
 
 // updates a user
-public editUser(username: string, updatedInfo: object): Observable<any> {
+public editUser(userDetails: any): Observable<any> {
+  const username =  localStorage.getItem('user');
+  const token = localStorage.getItem('token');
   const response = this.http.put(
     apiUrl + 'users/' + username,
-    updatedInfo,
+    userDetails,
     headers
   );
   return response.pipe(
