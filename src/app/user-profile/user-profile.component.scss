@@ -1,0 +1,31 @@
+mat-card {
+  background-color: #e9e5d5;
+  font-family: "Acme", sans-serif;
+  max-width: 400px;
+  margin-top: 20px;
+  border-radius: 20px;
+  border: 4px groove #fff;
+  padding: 5px;
+}
+.profile-div {
+  font-family: "Work Sans", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 20px;
+  margin: 30px auto;
+}
+mat-card-content {
+  margin: 16px;
+}
+.details-div {
+  max-width: 400px;
+  background-color: #e1e8eb;
+  padding: 16px;
+  border-radius: 20px;
+  font-size: 17px;
+  border: 4px groove #fff;
+}
+input {
+  font-size: 17px;
+}
