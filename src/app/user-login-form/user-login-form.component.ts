@@ -11,6 +11,13 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
   @Input() loginCredentials = { UserName: '', Password: '' };
+  /**
+    * Called when creating an instance of the class
+    * @param fetchApiData 
+    * @param dialogRef 
+    * @param snackBar 
+    * @param router 
+    */
   constructor(
     public fetchApiData: UserRegistrationService,
     private router  : Router,
@@ -20,11 +27,12 @@ export class UserLoginFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+   /**
+   * Function for sending the form inputs to the backend to login user
+   * @returns alert indicating a successful login or an error
+   */
   loginUser(): void {
-    this.fetchApiData.userLogin(this.loginCredentials).subscribe((result) => {
-  // Logic for a successful user registration goes here! (To be implemented)
-
-      
+    this.fetchApiData.userLogin(this.loginCredentials).subscribe((result) => {  
      this.dialogRef.close(); // This will close the modal on success!
      localStorage.setItem('token', result.token);
      localStorage.setItem('user', result.user.UserName);
